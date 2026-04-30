@@ -273,6 +273,30 @@
       </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">📸 Moments Along the Way</p>
+          <h2>Snapshots from the journey of building, learning, and sharing.</h2>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="images/abc.png.jpeg" alt="Moment 1" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/asd.png.jpeg" alt="Moment 2" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/qwe.png.jpeg" alt="Moment 3" loading="lazy" />
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/xyz.png.jpeg" alt="Moment 4" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section class="section contact-section" id="contact">
       <div class="container">
         <div class="contact-screen">
@@ -335,6 +359,16 @@
       <p class="copyright">© 2026 Vaibhavi Menghani. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close image">✕</button>
+      <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -194,3 +194,49 @@ if (contactForm) {
     }, 3000);
   });
 }
+
+// Lightbox Gallery Logic
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxOverlay = document.getElementById('lightboxOverlay');
+
+function openLightbox(imgSrc, captionText) {
+  if (!lightbox) return;
+  lightboxImg.src = imgSrc;
+  lightboxCaption.textContent = captionText;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  if (!lightbox) return;
+  lightbox.classList.remove('active');
+  document.body.style.overflow = 'auto';
+  // Small delay to clear src after fade out
+  setTimeout(() => {
+    lightboxImg.src = '';
+    lightboxCaption.textContent = '';
+  }, 300);
+}
+
+galleryItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const img = item.querySelector('img');
+    if (img) {
+      openLightbox(img.src, '');
+    }
+  });
+});
+
+if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
+
+// Close lightbox on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+    closeLightbox();
+  }
+});

@@ -161,6 +161,13 @@ body::before {
   transform: translateX(3px);
 }
 
+/* Hamburger & Status grouping */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 /* Hamburger — always visible on all screen sizes */
 .nav-toggle {
   display: flex;

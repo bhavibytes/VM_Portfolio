@@ -156,3 +156,41 @@ window.addEventListener('DOMContentLoaded', () => {
   typeBootLine();
   updateTyping();
 });
+
+// Contact Form Submission (Mailto fallback with nice formatting)
+const contactForm = document.getElementById('secureContactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const message = this.message.value.trim();
+    
+    // Construct email subject and body
+    const subject = encodeURIComponent(`Secure Connection from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    
+    // Open default email client
+    window.location.href = `mailto:vaibhavi.07.menghani@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Visual feedback
+    const btn = this.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    
+    btn.innerHTML = '> Link Generated';
+    btn.style.color = 'var(--accent)';
+    btn.style.borderColor = 'var(--accent)';
+    
+    // Reset form
+    this.reset();
+    
+    // Restore button after 3 seconds
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.style.color = '';
+      btn.style.borderColor = '';
+    }, 3000);
+  });
+}
